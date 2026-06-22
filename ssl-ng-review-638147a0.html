@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NG导航 · 简明指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7f6f3;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #24221f;
+            line-height: 1.7;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        .page {
+            max-width: 740px;
+            margin: 0 auto;
+        }
+
+        /* hero */
+        .hero {
+            margin-top: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 580;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            color: #1d1b18;
+            border-left: 5px solid #7b8c7d;
+            padding-left: 1.1rem;
+        }
+
+        .hero .sub {
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            color: #5f5b55;
+            max-width: 580px;
+        }
+
+        /* 背景说明卡片 */
+        .backdrop-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .backdrop-card h2 {
+            font-size: 1.4rem;
+            font-weight: 520;
+            letter-spacing: -0.01em;
+            margin-bottom: 1rem;
+            color: #2d2a25;
+        }
+
+        .backdrop-card p {
+            color: #3b3832;
+            margin-bottom: 0.8rem;
+        }
+
+        .backdrop-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .backdrop-card .quiet-note {
+            display: inline-block;
+            background: #efede8;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: #4d4942;
+            margin-top: 0.5rem;
+        }
+
+        /* 三段自然介绍 */
+        .intro-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .intro-item {
+            background: transparent;
+            border-bottom: 1px solid #d9d5cd;
+            padding-bottom: 1.2rem;
+        }
+
+        .intro-item h3 {
+            font-size: 1.25rem;
+            font-weight: 520;
+            color: #2f2b26;
+            margin-bottom: 0.5rem;
+        }
+
+        .intro-item p {
+            color: #4c4841;
+            max-width: 640px;
+        }
+
+        .intro-item p a {
+            color: #3f5c48;
+            text-decoration: none;
+            border-bottom: 1px solid #afbfa0;
+            transition: border-color 0.15s;
+        }
+
+        .intro-item p a:hover {
+            border-bottom-color: #2a3b2c;
+        }
+
+        /* 提示区域 */
+        .access-tip {
+            background: #eae7e1;
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 3.2rem;
+        }
+
+        .access-tip h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #25221d;
+        }
+
+        .access-tip ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .access-tip li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.45rem;
+            color: #3d3932;
+        }
+
+        .access-tip li::before {
+            content: "·";
+            position: absolute;
+            left: 0.3rem;
+            color: #6d7e64;
+            font-weight: 600;
+        }
+
+        .access-tip .faq-note {
+            margin-top: 1.2rem;
+            font-size: 0.95rem;
+            background: #d6d2c9;
+            padding: 0.8rem 1.4rem;
+            border-radius: 40px;
+            display: inline-block;
+            color: #2b2822;
+        }
+
+        /* 页尾 */
+        .footer-note {
+            text-align: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid #d1cdc4;
+            font-size: 0.9rem;
+            color: #636058;
+        }
+
+        .footer-note a {
+            color: #3d5a44;
+            text-decoration: none;
+            border-bottom: 1px solid #b2bfa6;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #293a2b;
+        }
+
+        /* 响应式 */
+        @media (max-width: 540px) {
+            body {
+                padding: 1.2rem 1rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                padding-left: 0.9rem;
+            }
+
+            .backdrop-card {
+                padding: 1.5rem 1.3rem;
+            }
+
+            .access-tip {
+                padding: 1.5rem 1.3rem;
+            }
+
+            .intro-item h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- hero -->
+        <div class="hero">
+            <h1>NG导航 · 简明指南</h1>
+            <div class="sub">少一些曲折，多一些直接的路径。</div>
+        </div>
+
+        <!-- 背景说明 -->
+        <div class="backdrop-card">
+            <h2>为什么需要一份导航简述</h2>
+            <p>每天我们面对无数标签页与收藏夹，但真正能让人快速定位、少绕路的导航并不多。<strong>NG导航</strong> 正是从这个简单的想法开始：减少无意义的跳转，把常用工具、信息节点和创意资源整理在一起。它不追求包罗万象，而更在意每一次点击是否自然。</p>
+            <p>这套导航的设计隐约带着一种“杂志式”的翻阅感——没有密集的广告，也没有刻意催促你停留。你可以在喜欢的板块多待一会儿，也可以随手关闭。这更像是一个安静的起点，而不是终点。</p>
+            <span class="quiet-note">—— 不是门户，更像一个安静的书架。</span>
+        </div>
+
+        <!-- 三段自然介绍 -->
+        <div class="intro-grid">
+            <div class="intro-item">
+                <h3>📌 日常使用场景</h3>
+                <p>无论是快速查阅技术文档、浏览设计灵感，还是寻找靠谱的公共资源，<a href="https://ssl-ng.com">NG导航</a> 都能提供一个清爽的出发位置。它没有复杂的注册要求，打开即可看到分类，像一本立体的手册。</p>
+            </div>
+            <div class="intro-item">
+                <h3>🗂️ 模块与节奏</h3>
+                <p>导航内的板块依照使用频率和场景分组，从“常用工具箱”到“阅读与归档”，彼此之间留出了呼吸感。你不需要记住复杂的层级，只需要顺着直觉滑动或点击。这种节奏更像翻阅一本杂志，而不是使用一个冷冰冰的工具页面。</p>
+            </div>
+            <div class="intro-item">
+                <h3>🌱 不止于链接</h3>
+                <p>有些地方会附带简短的说明或提醒，帮助你在打开之前就了解这个站点是否适合当下。比如某些资源需要特殊网络环境，或者某个工具只适合特定操作系统——这些细节都被悄悄标注在附近。当然，关键信息还是需要你自己判断，但至少少了一点摸索的成本。</p>
+            </div>
+        </div>
+
+        <!-- 访问提示 -->
+        <div class="access-tip">
+            <h2>访问时的小提醒</h2>
+            <ul>
+                <li>建议使用现代浏览器（Chrome / Firefox / Edge 最新版本）以获得完整布局。</li>
+                <li>移动端同样适配，横屏或竖屏都能保持可读性。</li>
+                <li>部分外部链接会离开导航站点，请留意地址栏的变化。</li>
+                <li>如果遇到加载缓慢，可以尝试刷新或更换网络环境。</li>
+            </ul>
+            <div class="faq-note">
+                ⚡ FAQ 摘要：页面中没有广告弹窗，所有链接均经过基础人工筛选，但仍建议自行判断网站安全性。
+            </div>
+        </div>
+
+        <!-- 页尾访问提示 -->
+        <div class="footer-note">
+            <p>如果你还在寻找一个不那么拥挤的起点，不妨试试 <a href="https://ssl-ng.com">NG导航</a> 。它就在那里，干净、安静，像一本杂志一样等你翻开。</p>
+            <p style="margin-top: 0.8rem; font-size: 0.8rem; color: #7c7870;">&copy; 索引页 · 内容仅供日常参考</p>
+        </div>
+    </div>
+</body>
+</html>
